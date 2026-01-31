@@ -5,7 +5,6 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Providers } from "./providers"
 import { Toaster } from "@/components/ui/toaster"
 
@@ -22,10 +21,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`} style={{ fontFamily: "'Futura PT', sans-serif" }}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  // Ensure light theme - remove any dark class
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.style.colorScheme = 'light';
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <Providers>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
+          {children}
           <Suspense fallback={null}>
             <Analytics />
           </Suspense>

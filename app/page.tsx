@@ -14,8 +14,6 @@ export default function HomePage() {
 
   useEffect(() => {
     setMounted(true)
-    // Always use light theme
-    document.documentElement.classList.remove("dark")
   }, [])
 
   // Handle redirects after authentication - only redirect authenticated users away from landing page
