@@ -4,7 +4,7 @@
 
 - **Pitch Deck**: Coming Soon
 - **Demo Video**: Coming Soon
-- **Live App**: Coming Soon
+- **Live App**: [View Here](https://impakt-iota.vercel.app)
 
 ---
 
