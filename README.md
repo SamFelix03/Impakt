@@ -165,6 +165,8 @@ impakt operates through two main systems that work together to create a complete
 
 ### Disaster Detection and Analysis Pipeline
 
+<img width="1467" height="772" alt="Screenshot 2026-02-01 at 12 52 40 AM" src="https://github.com/user-attachments/assets/93799a84-7552-415a-9ca4-d7f836fbca70" />
+
 This pipeline automatically detects disasters, gathers comprehensive information, and prepares them for community response and funding.
 
 #### Phase 1: Get Disaster Details, Location & Weather
@@ -234,6 +236,8 @@ This pipeline automatically detects disasters, gathers comprehensive information
 **Result**: A complete disaster response setup—from detection to awareness (both public Twitter posts and direct organizational email outreach) to community formation—all automated through LangGraph workflows and ready for action.
 
 ### Donation and Claim System
+
+<img width="1467" height="772" alt="Screenshot 2026-02-01 at 12 52 50 AM" src="https://github.com/user-attachments/assets/ad49fcc2-edee-41a3-8003-1d19bc6f727b" />
 
 This system manages the flow of donations and ensures transparent, democratic fund distribution to organizations.
 
@@ -375,7 +379,7 @@ The Disaster Monitoring Agent discovers recent disasters, estimates relief needs
 
 ## Response Coordinator Agent
 
-<img width="1284" height="506" alt="image" src="https://github.com/user-attachments/assets/ab5d928c-1952-4320-b632-b59b68373480" />
+<img width="1284" height="506" alt="543179367-ab5d928c-1952-4320-b632-b59b68373480" src="https://github.com/user-attachments/assets/94f437e6-a72e-48ae-9b42-e0f2c49d3f24" />
 
 **File:** `responseCoordinatorAgent.py`
 
@@ -473,7 +477,7 @@ The Verification Agent evaluates NGO reimbursement claims against a disaster rel
 
 ## Telegram Agent
 
-<img width="1551" height="936" alt="image" src="https://github.com/user-attachments/assets/9a6397fa-c8c8-4e02-bf0d-d18e57d8548a" />
+<img width="1551" height="936" alt="543180327-9a6397fa-c8c8-4e02-bf0d-d18e57d8548a" src="https://github.com/user-attachments/assets/7410925f-8431-4da9-a909-5ea3522ca142" />
 
 **File:** `group/agent.py` (outside `agents/`)
 
@@ -544,8 +548,9 @@ Opik provides **observability** (traces), **evaluation** (LLM-as-Judge scoring),
 
 This script runs **Opik Agent Optimizer** algorithms (from `opik-optimizer`) to improve **prompts** (and optionally parameters) for the **Disaster Monitoring**, **Response Coordinator**, and **Verification** agents.
 
-<img width="1647" height="845" alt="image" src="https://github.com/user-attachments/assets/c8b05dec-1bbc-429a-9ac0-cdb30e29f80d" />
-<img width="1637" height="832" alt="image" src="https://github.com/user-attachments/assets/021646a2-7db9-471f-b933-e93622cd62e6" />
+<img width="1647" height="845" alt="543177965-c8b05dec-1bbc-429a-9ac0-cdb30e29f80d" src="https://github.com/user-attachments/assets/35d81586-2fd9-4c4d-af86-4c0530bcb3d6" />
+
+<img width="1637" height="832" alt="543177918-021646a2-7db9-471f-b933-e93622cd62e6" src="https://github.com/user-attachments/assets/f899aa33-f9e9-4a9d-8bd8-3ec3c7d693db" />
 
 **What it does**
 
@@ -586,7 +591,7 @@ This script runs **Opik Agent Optimizer** algorithms (from `opik-optimizer`) to 
 
 **Example: Disaster relief calculator optimization (Optimization Studio)**
 
-<img width="1661" height="895" alt="image" src="https://github.com/user-attachments/assets/3e390517-55c5-4762-880a-119202407a5a" />
+<img width="1661" height="895" alt="543177997-3e390517-55c5-4762-880a-119202407a5a" src="https://github.com/user-attachments/assets/3d2fe736-2850-4fc8-aaec-96978e4a79b8" />
 
 We ran **6 optimizations across 3 datasets** (disaster monitoring, response coordinator, verification). One representative run is the **disaster relief calculator** optimization (Optimization Studio run **agricultural_lemur_2708**, completed).
 
@@ -615,7 +620,7 @@ This script runs **offline evaluations** using Opik’s **evaluate()** API. Each
    - **Email Quality:** e.g. 1 item (Chile earthquake, Red Cross contact, relief amount) with expected urgency, action items, professional tone, etc.
    - **Claim Verification:** e.g. 2 items (valid claim with receipts, unsubstantiated claim) with claim text, vault balance, evidence and expected recommendation range/conservativeness.
    - **Telegram Response:** e.g. 2 items (disaster query, donation query) with user_message, disaster_context and expected relevance/helpfulness/tone.
-   <img width="1666" height="876" alt="image" src="https://github.com/user-attachments/assets/9e791ba7-4d38-4822-af74-5fcf1c8a5ad5" />
+   <img width="1666" height="876" alt="543178080-9e791ba7-4d38-4822-af74-5fcf1c8a5ad5" src="https://github.com/user-attachments/assets/aacef61d-2a72-41f4-9a6d-94f56cd3f000" />
    The script builds **experiment-specific** dataset names (e.g. including evaluation_type and test_functionality) so different runs can share or isolate data as intended.
 
 2. **Task functions**  
@@ -640,7 +645,8 @@ This script runs **offline evaluations** using Opik’s **evaluate()** API. Each
 **Example: Eight experiments we ran**
 
 We ran **8 experiments** via `run_opik_tests.py`:
-<img width="1650" height="882" alt="image" src="https://github.com/user-attachments/assets/66992cac-9de7-49db-be10-c4749bcd9034" />
+
+<img width="1650" height="882" alt="543178114-66992cac-9de7-49db-be10-c4749bcd9034" src="https://github.com/user-attachments/assets/d2ce4f4b-4d61-46bd-9072-5303cd685ced" />
 
 | Experiment name | Dataset |
 |-----------------|---------|
@@ -651,7 +657,7 @@ We ran **8 experiments** via `run_opik_tests.py`:
 
 Example: **Email quality improvement: max_tokens 100 → 300 (0.68 → 0.84)**
 
-<img width="1658" height="893" alt="image" src="https://github.com/user-attachments/assets/389963d4-16f7-4084-a049-8d9d1d3deaa2" />
+<img width="1658" height="893" alt="543178170-389963d4-16f7-4084-a049-8d9d1d3deaa2" src="https://github.com/user-attachments/assets/11a17c66-08ff-4381-9fea-ec754f9fd4a0" />
 
 One representative experiment is the improvement in email quality:
 
@@ -664,7 +670,7 @@ We compared **Email Quality - draft_email - max_tokens_100** (baseline) and **Em
 
 ### Traces and LLM-as-Judge scoring in all four agents
 
-<img width="1667" height="898" alt="image" src="https://github.com/user-attachments/assets/49d5ac0d-3a17-4c2e-9df1-5aed210decfd" />
+<img width="1667" height="898" alt="543178233-49d5ac0d-3a17-4c2e-9df1-5aed210decfd" src="https://github.com/user-attachments/assets/16b4ef1f-fb57-4521-88d5-cf52a716610f" />
 
 **Traces** record the flow of each run (steps, inputs/outputs, timing). **LLM-as-Judge** uses an LLM to score outputs against criteria and sends those scores to Opik as **feedback scores** on the trace, so the impakt team can see quality per run in the dashboard.
 
@@ -672,7 +678,7 @@ We compared **Email Quality - draft_email - max_tokens_100** (baseline) and **Em
 
 #### 1. Disaster Monitoring Agent
 
-<img width="1662" height="908" alt="image" src="https://github.com/user-attachments/assets/9c3947e2-47f6-45fa-9595-12e4c3be0a74" />
+<img width="1662" height="908" alt="543178448-9c3947e2-47f6-45fa-9595-12e4c3be0a74" src="https://github.com/user-attachments/assets/59fa922f-6144-442a-b3ce-f17048e1ed6a" />
 
 - **Traces**
   - The full LangGraph run is traced via **OpikTracer** (LangChain/LangGraph integration): `config={"callbacks": [opik_tracer]}` on `graph.invoke(...)`. The tracer is created from the compiled graph with `get_graph(xray=True)`.
@@ -682,9 +688,9 @@ We compared **Email Quality - draft_email - max_tokens_100** (baseline) and **Em
   - **opik_langgraph_helper** is used to update node spans with input/output (`update_node_span_with_io`) and to log the current trace ID for debugging.
 
 - **LLM-as-Judge and scoring**
-  <img width="1425" height="645" alt="image" src="https://github.com/user-attachments/assets/9e12b78d-52a4-472e-aebd-07de9bd8c90c" />
+  <img width="1425" height="645" alt="543178586-9e12b78d-52a4-472e-aebd-07de9bd8c90c" src="https://github.com/user-attachments/assets/1eb103b7-c332-45fc-8ca9-3825e6e7d456" />
   - **Search (disaster detection):** After the web-search response, `llm_judge.evaluate_disaster_detection(disaster_info, location, sources, ...)` runs. It returns an overall score and per-criterion scores (accuracy, relevance, completeness, source quality, location precision). These are sent to the current trace via `update_current_trace(feedback_scores=...)` (when `send_to_opik=True`), so the `disaster_monitoring.search_disasters` span shows **Trace scores** in the Opik UI.
-  <img width="1427" height="545" alt="image" src="https://github.com/user-attachments/assets/b5a67346-cba7-41d0-be2c-790691aabe0b" />
+  <img width="1427" height="545" alt="543178622-b5a67346-cba7-41d0-be2c-790691aabe0b" src="https://github.com/user-attachments/assets/4f82156d-0f77-41c6-a0f4-c653ee941d5d" />
   - **Relief calculation:** After the relief-amount LLM call, `llm_judge.evaluate_relief_calculation(disaster_info, weather_data, calculated_amount, location, ...)` runs. Again, scores are attached to the trace so the relief step has feedback in the dashboard.
 
 ---
@@ -696,7 +702,7 @@ We compared **Email Quality - draft_email - max_tokens_100** (baseline) and **Em
   - **OpikSpan** is used around the contact-search LLM call and the email-drafting LLM call. **opik_langgraph_helper** updates node spans with input/output for search_contacts and draft_emails.
 
 - **LLM-as-Judge and scoring**
-  <img width="847" height="451" alt="image" src="https://github.com/user-attachments/assets/5e1bb2f5-c713-4093-a02e-35606eeb5a12" />
+  <img width="847" height="451" alt="543178677-5e1bb2f5-c713-4093-a02e-35606eeb5a12" src="https://github.com/user-attachments/assets/8b46d982-2a2b-4b31-aba3-0f49b2383ce8" />
   - **Contact search:** After parsing contacts, a simple quality score (e.g. fraction of contacts with valid email) can be computed and sent to the trace via `update_current_trace(feedback_scores=[...])`.
   - **Draft emails:** For each drafted email (e.g. first 3), `llm_judge.evaluate_email_quality(email_draft, disaster_info, contact_info, ...)` runs. Criteria include urgency, clarity, relevance, professionalism, action items. The scores are attached to the current trace so the **response_coordinator.draft_emails** span shows feedback. If draft_emails does not show scores in the UI, it is usually because the trace context (e.g. from the LangGraph tracer) is not the same one that `update_current_trace` uses—ensuring feedback is sent on the same trace that LangGraph creates fixes this.
 
@@ -709,9 +715,9 @@ We compared **Email Quality - draft_email - max_tokens_100** (baseline) and **Em
   - **OpikSpan** wraps the recommend-amount LLM call (`recommend_amount_llm`). **opik_langgraph_helper** is used to set input/output on the recommend node span.
 
 - **LLM-as-Judge and scoring**
-  <img width="1416" height="896" alt="image" src="https://github.com/user-attachments/assets/e51c820d-f0b1-44ce-a7b9-4df77bf09ed0" />
+  <img width="1416" height="896" alt="543178711-e51c820d-f0b1-44ce-a7b9-4df77bf09ed0" src="https://github.com/user-attachments/assets/5428a598-dbae-4f2d-b19b-5238c21ac97c" />
   - **Recommend amount:** After computing the recommended USD amount, `llm_judge.evaluate_claim_verification(claim_text, recommended_amount, vault_balance, evidence_summary, ...)` runs. The returned overall score and per-criterion scores are sent to the current trace via `update_current_trace(feedback_scores=...)`, so the verification run shows **Trace scores** in the Opik UI.
-  <img width="1423" height="654" alt="image" src="https://github.com/user-attachments/assets/da9acfef-66cb-4fee-a7df-e1991b674342" />
+  <img width="1423" height="654" alt="543178797-da9acfef-66cb-4fee-a7df-e1991b674342" src="https://github.com/user-attachments/assets/32431c5a-1cdc-4c1a-813c-6efac0291b90" />
   - **Vote endpoint:** For adjustment (higher/lower) and release, the vote handler is wrapped in **OpikTracer**. The adjustment path uses **OpikSpan** around the adjustment LLM call and `llm_judge.evaluate_vote_adjustment(...)`; again, feedback scores are sent to the trace so vote runs are scored in the dashboard.
 
 ---
@@ -722,7 +728,7 @@ We compared **Email Quality - draft_email - max_tokens_100** (baseline) and **Em
   - Each user message is wrapped in a trace via **opik.start_as_current_trace(...)** (e.g. `telegram_bot_response_{topic_id}`), with input (user_message, topic_id, user_id, disaster_id), tags, and metadata. A span is created for the LLM call (`telegram_bot_llm_call`) with input/output metadata. The trace is updated with the bot response as output.
 
 - **LLM-as-Judge and scoring**
-  <img width="1430" height="581" alt="image" src="https://github.com/user-attachments/assets/efadfda2-fbf6-4fb4-8c48-47e31399fb94" />
+  <img width="1430" height="581" alt="543178838-efadfda2-fbf6-4fb4-8c48-47e31399fb94" src="https://github.com/user-attachments/assets/31781536-8175-4243-95cd-92217712339a" />
   - After the bot replies, `llm_judge.evaluate_telegram_response(user_message, bot_response, disaster_context)` runs. It returns overall_score and criteria (relevance, accuracy, helpfulness, tone, completeness). These are sent to the current trace via `update_current_trace(feedback_scores=...)`. The score can also be passed to the behavior tracker (`learn_from_feedback`) for personalization. So each Telegram interaction can show feedback scores on its trace in the Opik dashboard.
 
 ---
