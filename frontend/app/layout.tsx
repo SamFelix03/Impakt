@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 import { Providers } from "./providers"
-import { Toaster } from "@/frontend/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: "impakt",

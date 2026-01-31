@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { Button } from "@/frontend/components/ui/button"
-import { useAuth } from "@/frontend/lib/auth"
+import { Button } from "@/components/ui/button"
+import { useAuth } from "@/lib/auth"
 import { Loader2 } from "lucide-react"
 
 export default function HomePage() {

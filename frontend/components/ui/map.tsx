@@ -18,7 +18,7 @@ import {
 import { createPortal } from "react-dom";
 import { X, Minus, Plus, Locate, Maximize, Loader2 } from "lucide-react";
 
-import { cn } from "@/frontend/lib/utils";
+import { cn } from "@/lib/utils";
 
 // Always use light theme - theme detection removed
 function useResolvedTheme(themeProp?: "light" | "dark"): "light" | "dark" {

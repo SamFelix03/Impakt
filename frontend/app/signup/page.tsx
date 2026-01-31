@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { useAuthGuard } from "@/frontend/lib/auth-guard"
-import { useAuth } from "@/frontend/lib/auth"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/frontend/components/ui/card"
-import { Button } from "@/frontend/components/ui/button"
+import { useAuthGuard } from "@/lib/auth-guard"
+import { useAuth } from "@/lib/auth"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { Loader2, User, Building2, CheckCircle2 } from "lucide-react"
-import IndividualProfileForm from "@/frontend/components/individual-profile-form"
-import OrganizationProfileForm from "@/frontend/components/organization-profile-form"
-import Navbar from "@/frontend/components/navbar"
+import IndividualProfileForm from "@/components/individual-profile-form"
+import OrganizationProfileForm from "@/components/organization-profile-form"
+import Navbar from "@/components/navbar"
 
 export default function SignupPage() {
   const router = useRouter()

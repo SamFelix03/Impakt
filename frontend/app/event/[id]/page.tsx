@@ -2,20 +2,20 @@
 
 import { useEffect, useState, useRef } from "react"
 import { useRouter, useParams } from "next/navigation"
-import { useAuthGuard } from "@/frontend/lib/auth-guard"
-import { Card, CardContent, CardDescription, CardHeader } from "@/frontend/components/ui/card"
-import { Button } from "@/frontend/components/ui/button"
+import { useAuthGuard } from "@/lib/auth-guard"
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { Loader2, MapPin, ArrowLeft, Share2, CheckCircle, XCircle, TrendingUp, TrendingDown } from "lucide-react"
-import Navbar from "@/frontend/components/navbar"
+import Navbar from "@/components/navbar"
 import { format } from "date-fns"
-import { Map, MapMarker, MarkerContent, MapControls } from "@/frontend/components/ui/map"
-import { geocodeLocation } from "@/frontend/lib/geocode"
+import { Map, MapMarker, MarkerContent, MapControls } from "@/components/ui/map"
+import { geocodeLocation } from "@/lib/geocode"
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/frontend/components/ui/dialog"
-import { Badge } from "@/frontend/components/ui/badge"
-import { DonationModal } from "@/frontend/components/donation-modal"
-import { SubmitClaimModal } from "@/frontend/components/submit-claim-modal"
-import { useAuth } from "@/frontend/lib/auth"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Badge } from "@/components/ui/badge"
+import { DonationModal } from "@/components/donation-modal"
+import { SubmitClaimModal } from "@/components/submit-claim-modal"
+import { useAuth } from "@/lib/auth"
 
 interface Claim {
   id: string

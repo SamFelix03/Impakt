@@ -2,12 +2,12 @@
 
 import { useEffect, useState, useRef } from "react"
 import { useRouter } from "next/navigation"
-import { useAuthGuard } from "@/frontend/lib/auth-guard"
-import { useAuth } from "@/frontend/lib/auth"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/frontend/components/ui/card"
-import { Button } from "@/frontend/components/ui/button"
+import { useAuthGuard } from "@/lib/auth-guard"
+import { useAuth } from "@/lib/auth"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import { Loader2, MapPin, Calendar, DollarSign, AlertCircle } from "lucide-react"
-import Navbar from "@/frontend/components/navbar"
+import Navbar from "@/components/navbar"
 import { format } from "date-fns"
 
 interface DisasterEvent {

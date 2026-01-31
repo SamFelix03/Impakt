@@ -1,15 +1,15 @@
 "use client"
 
 import { useState } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/frontend/components/ui/dialog"
-import { Button } from "@/frontend/components/ui/button"
-import { Input } from "@/frontend/components/ui/input"
-import { Textarea } from "@/frontend/components/ui/textarea"
-import { Label } from "@/frontend/components/ui/label"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
 import { Loader2, Upload, CheckCircle, X, Image as ImageIcon } from "lucide-react"
-import { toast } from "@/frontend/hooks/use-toast"
-import { cn } from "@/frontend/lib/utils"
-import { useAuth } from "@/frontend/lib/auth"
+import { toast } from "@/hooks/use-toast"
+import { cn } from "@/lib/utils"
+import { useAuth } from "@/lib/auth"
 
 interface SubmitClaimModalProps {
   open: boolean

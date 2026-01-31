@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { useAuth } from "@/frontend/lib/auth"
+import { useAuth } from "@/lib/auth"
 import { Loader2 } from "lucide-react"
 
 export function AuthGuard({ children }: { children: React.ReactNode }) {

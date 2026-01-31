@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
 import { User, LogOut } from 'lucide-react'
-import { useAuth } from '@/frontend/lib/auth'
-import { Button } from '@/frontend/components/ui/button'
+import { useAuth } from '@/lib/auth'
+import { Button } from '@/components/ui/button'
 
 export default function Navbar() {
   const pathname = usePathname()
