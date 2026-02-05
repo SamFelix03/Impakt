@@ -302,6 +302,8 @@ This document describes the agent pipelines in the IMPAKT disaster relief system
 
 ## Disaster Monitoring Agent
 
+<img width="758" height="444" alt="image" src="https://github.com/user-attachments/assets/2688191d-8bef-4ed3-95c1-fa2e264c133d" />
+
 **File:** `disasterAgent.py`
 
 The Disaster Monitoring Agent discovers recent disasters, estimates relief needs, creates on-chain vaults, coordinates outreach, and posts alerts. It is implemented as a **LangGraph** workflow with multiple tools and a sub-agent (Response Coordinator).
