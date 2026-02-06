@@ -1,0 +1,930 @@
+[LOG] Logging all output to: C:\Users\MSI\Desktop\handz\agents\opik_optimization_log_20260129_122736.txt
+[LOG] Started at: 2026-01-29T12:27:36.773397
+================================================================================
+OPIK: Opik is already configured. You can check the settings by viewing the config file at C:\Users\MSI\.opik.config
+OPIK: Configuration completed successfully. Traces will be logged to 'disaster-monitoring' project. To change the destination project, see: https://www.comet.com/docs/opik/tracing/log_traces#configuring-the-project-name
+[OPIK] [OK] Configured with API key (workspace: impakt)
+[OPIK] Project: disaster-monitoring
+
+  ░██████                 ░██    ░██                ░██                               
+ ░██   ░██                ░██                                                         
+░██     ░██ ░████████  ░████████ ░██░█████████████  ░██░█████████  ░███████  ░██░████ 
+░██     ░██ ░██    ░██    ░██    ░██░██   ░██   ░██ ░██     ░███  ░██    ░██ ░███     
+░██     ░██ ░██    ░██    ░██    ░██░██   ░██   ░██ ░██   ░███    ░█████████ ░██      
+ ░██   ░██  ░███   ░██    ░██    ░██░██   ░██   ░██ ░██ ░███      ░██        ░██      
+  ░██████   ░██░█████      ░████ ░██░██   ░██   ░██ ░██░█████████  ░███████  ░██      
+            ░██                                                                       
+            ░██                                                                       
+Opik Optimizer SDK Version: 3.0.0
+[INFO] GEPA optimizer not available. Install with: pip install gepa
+[OK] opik-optimizer imported successfully
+OPIK: Opik is already configured. You can check the settings by viewing the config file at C:\Users\MSI\.opik.config
+OPIK: Configuration completed successfully. Traces will be logged to 'disaster-monitoring' project. To change the destination project, see: https://www.comet.com/docs/opik/tracing/log_traces#configuring-the-project-name
+[OK] Opik initialized successfully (workspace: impakt, project: disaster-monitoring)
+[LLMJudgeEvaluator] Initialized with model: gpt-4o-mini
+[LLM JUDGE] Initialized LLM-as-Judge evaluator (model: gpt-4o-mini)
+
+================================================================================
+OPIK AGENT OPTIMIZATION TEST SUITE
+Started: 2026-01-29T12:27:45.258648
+================================================================================
+
+[COST WARNING] This script makes many API calls and can be expensive!
+  Current settings:
+    Max Trials: 1 (reduced from default 5)
+    N Samples: all (matches dataset size) (reduced from default 50)
+    N Threads: 1 (reduced from default 4 - sequential)
+    Quick Mode: True (only MetaPrompt optimizer if True)
+
+  Quick mode enabled: Only MetaPrompt optimizer will run
+  Estimated optimizations: ~6 runs
+
+  To further reduce costs:
+    - Set OPIK_MAX_TRIALS=1 (minimum)
+    - Set OPIK_N_SAMPLES=3 (use fewer dataset items)
+    - Set OPIK_QUICK_MODE=true (only MetaPrompt)
+================================================================================
+
+Configuration:
+  Optimizer Model: openai/gpt-4o-mini
+  Max Trials: 1
+  N Samples: all
+  N Threads: 1
+  Quick Mode: True
+
+================================================================================
+STEP 1: Creating datasets...
+================================================================================
+[DATASET] Creating datasets for Opik Agent Optimization...
+[DATASET] Created disaster-monitoring-optimization with 7 examples
+[DATASET] Created response-coordinator-optimization with 5 examples
+[DATASET] Created verification-optimization with 6 examples
+[DATASET] All datasets created successfully!
+
+================================================================================
+STEP 2: Running optimizations...
+================================================================================
+
+################################################################################
+# DISASTER MONITORING AGENT OPTIMIZATION
+################################################################################
+
+================================================================================
+[METAPROMPT] Optimizing: search_disasters
+================================================================================
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ ● Running Opik Evaluation - MetaPromptOptimizer                              │
+│                                                                              │
+│ -> View optimization details in your Opik dashboard                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+> Let's optimize the prompt:
+
+╭─ system ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You are a disaster monitoring assistant.                                    │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ user ───────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  Search for ONE natural disaster or emergency that happened recently         │
+│  worldwide (could be from today, yesterday, last week, or even a few weeks   │
+│  ago).                                                                       │
+│                                                                              │
+│  DO NOT report on: {exclude_list}                                            │
+│                                                                              │
+│  Find ONE different disaster that hasn't been mentioned yet - it could be:   │
+│  - Earthquake                                                                │
+│  - Flood                                                                     │
+│  - Wildfire                                                                  │
+│  - Storm/Hurricane/Cyclone                                                   │
+│  - Tsunami                                                                   │
+│  - Volcanic eruption                                                         │
+│  - Landslide                                                                 │
+│  - Any other major disaster                                                  │
+│                                                                              │
+│  The disaster doesn't need to be from today - just find ANY disaster that    │
+│  happened in recent times that we haven't covered yet.                       │
+│  Provide complete information including SPECIFIC LOCATION                    │
+│  (city/region/country), impact, casualties, and current status.              │
+│  Include at least one reliable news source URL.                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Using MetaPromptOptimizer with the parameters: 
+  - evaluation: n=1 policy=best_by_metric
+  - max_trials: 1
+  - prompts_per_round: 4
+  - n_samples: None (max dataset items evaluated per trial)
+  - auto_continue: False
+  - validation_dataset: None
+  - n_samples_strategy: random_sorted (sampling strategy)
+
+
+> First we will establish the baseline performance:
+  Using training dataset: disaster-monitoring-optimization
+  Evaluation settings: n=1 | n_samples=all, strategy=random_sorted
+
+  Baseline score was: 0.3707.
+
+│    Generating up to 1 candidate prompt:
+│      Evaluation settings: n=1 policy=best_by_metric
+│      Successfully generated 4 candidate prompts (cap 1) (n=1 policy=best_by_metric)
+│
+│    Evaluating candidate prompt 1:
+│         Evaluation settings: n=1 policy=best_by_metric
+│         (using training dataset: disaster-monitoring-optimization for ranking)
+│         chat-prompt:
+│         ╭─ system ─────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You are a disaster monitoring assistant. Your task is to report on a        │
+│         │  recent worldwide natural disaster that has not been covered yet.            │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│         ╭─ user ───────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  Search for ONE natural disaster or emergency that happened recently         │
+│         │  worldwide (could be from today, yesterday, last week, or even a few weeks   │
+│         │  ago).                                                                       │
+│         │                                                                              │
+│         │  DO NOT report on: {exclude_list}                                            │
+│         │                                                                              │
+│         │  Find ONE different disaster that hasn't been mentioned yet - it could be:   │
+│         │  - Earthquake                                                                │
+│         │  - Flood                                                                     │
+│         │  - Wildfire                                                                  │
+│         │  - Storm/Hurricane/Cyclone                                                   │
+│         │  - Tsunami                                                                   │
+│         │  - Volcanic eruption                                                         │
+│         │  - Landslide                                                                 │
+│         │  - Any other major disaster                                                  │
+│         │                                                                              │
+│         │  The disaster doesn't need to be from today - just find ANY disaster that    │
+│         │  happened in recent times that we haven't covered yet.                       │
+│         │  Provide complete information including SPECIFIC LOCATION                    │
+│         │  (city/region/country), impact, casualties, and current status.              │
+│         │  Include at least one reliable news source URL.                              │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│
+
+│          Evaluation score: 0.3607 (worse -0.0100, -2.70% vs best)
+│
+│
+
+> Optimization complete
+
+  No improvement over the initial prompt.
+
+[METAPROMPT] [OK] Completed: search_disasters
+  Initial Score: 0.3707
+  Final Score: 0.3707
+  Improvement: 0.0000
+  Best Prompt Preview: [{"role": "system", "content": "You are a disaster monitoring assistant."}, {"role": "user", "content": "Search for ONE natural disaster or emergency that happened recently worldwide (could be from to...
+
+================================================================================
+[METAPROMPT] Optimizing: calculate_relief
+================================================================================
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ ● Running Opik Evaluation - MetaPromptOptimizer                              │
+│                                                                              │
+│ -> View optimization details in your Opik dashboard                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+> Let's optimize the prompt:
+
+╭─ system ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You are a disaster relief calculator.                                       │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ user ───────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You are a disaster relief calculator. Based on the disaster information     │
+│  and current weather conditions, estimate the relief amount needed in USD.   │
+│                                                                              │
+│  DISASTER INFO:                                                              │
+│  {disaster_content}                                                          │
+│                                                                              │
+│  CURRENT WEATHER CONDITIONS:                                                 │
+│  {weather_summary}                                                           │
+│                                                                              │
+│  Consider:                                                                   │
+│  1. Scale of disaster (casualties, displaced people, damage)                 │
+│  2. Current weather (harsh conditions = more relief needed)                  │
+│  3. Geographic area affected                                                 │
+│  4. Infrastructure damage                                                    │
+│  5. Population density                                                       │
+│                                                                              │
+│  Provide a realistic relief amount estimate in USD. Output format:           │
+│  ONLY output a number (e.g., 5000000 for $5M, 250000 for $250K)              │
+│                                                                              │
+│  Amount in USD:                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Using MetaPromptOptimizer with the parameters: 
+  - evaluation: n=1 policy=best_by_metric
+  - max_trials: 1
+  - prompts_per_round: 4
+  - n_samples: None (max dataset items evaluated per trial)
+  - auto_continue: False
+  - validation_dataset: None
+  - n_samples_strategy: random_sorted (sampling strategy)
+
+
+> First we will establish the baseline performance:
+  Using training dataset: disaster-monitoring-optimization
+  Evaluation settings: n=1 | n_samples=all, strategy=random_sorted
+
+  Baseline score was: 0.2584.
+
+│    Generating up to 1 candidate prompt:
+│      Evaluation settings: n=1 policy=best_by_metric
+│      Successfully generated 4 candidate prompts (cap 1) (n=1 policy=best_by_metric)
+│
+│    Evaluating candidate prompt 1:
+│         Evaluation settings: n=1 policy=best_by_metric
+│         (using training dataset: disaster-monitoring-optimization for ranking)
+│         chat-prompt:
+│         ╭─ system ─────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You are equipped to evaluate disaster relief estimates.                     │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│         ╭─ user ───────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You are a disaster relief calculator. Based on the disaster information     │
+│         │  and current weather conditions, estimate the relief amount needed in USD.   │
+│         │                                                                              │
+│         │  DISASTER INFO:                                                              │
+│         │  {disaster_content}                                                          │
+│         │                                                                              │
+│         │  CURRENT WEATHER CONDITIONS:                                                 │
+│         │  {weather_summary}                                                           │
+│         │                                                                              │
+│         │  Consider:                                                                   │
+│         │  1. Scale of disaster (casualties, displaced people, damage)                 │
+│         │  2. Current weather (harsh conditions = more relief needed)                  │
+│         │  3. Geographic area affected                                                 │
+│         │  4. Infrastructure damage                                                    │
+│         │  5. Population density                                                       │
+│         │                                                                              │
+│         │  Provide a realistic relief amount estimate in USD. Output format:           │
+│         │  ONLY output a number (e.g., 5000000 for $5M, 250000 for $250K)              │
+│         │                                                                              │
+│         │  Amount in USD:                                                              │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│
+
+│          Evaluation score: 0.2744 (improved +0.0159, +6.16% vs best)
+│
+│
+
+> Optimization complete
+
+  Improved from 0.2584 to 0.2744 (6.16%)
+
+[METAPROMPT] [OK] Completed: calculate_relief
+  Initial Score: 0.2584
+  Final Score: 0.2744
+  Improvement: 0.0159
+  Best Prompt Preview: [{"role": "system", "content": "You are equipped to evaluate disaster relief estimates."}, {"role": "user", "content": "You are a disaster relief calculator. Based on the disaster information and curr...
+
+################################################################################
+# RESPONSE COORDINATOR AGENT OPTIMIZATION
+################################################################################
+
+================================================================================
+[METAPROMPT] Optimizing: draft_emails
+================================================================================
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ ● Running Opik Evaluation - MetaPromptOptimizer                              │
+│                                                                              │
+│ -> View optimization details in your Opik dashboard                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+> Let's optimize the prompt:
+
+╭─ system ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You are drafting urgent disaster outreach emails.                           │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ user ───────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  Draft urgent outreach emails that reflect the SERIOUSNESS of the disaster   │
+│  and ask the recipient to HELP people affected.                              │
+│                                                                              │
+│  DISASTER LOCATION: {location}                                               │
+│  DISASTER SUMMARY:                                                           │
+│  {disaster_summary}                                                          │
+│                                                                              │
+│  SOURCES:                                                                    │
+│  {sources_text}                                                              │
+│                                                                              │
+│  OPTIONAL RELIEF CONTEXT:                                                    │
+│  - Relief estimate (USD): {relief_usd}                                       │
+│  - Relief estimate (ETH): {relief_eth}                                       │
+│  - Donation vault address: {vault_address}                                   │
+│                                                                              │
+│  CONTACTS (JSON):                                                            │
+│  {contacts_text}                                                             │
+│                                                                              │
+│  RULES:                                                                      │
+│  - Produce one email draft per contact.                                      │
+│  - Keep each email concise, specific, and respectful.                        │
+│  - All contacts provided have an email. Set "to_email" to the contact email  │
+│  EXACTLY.                                                                    │
+│  - Do NOT frame it as "we offer our support" or "potential collaboration".   │
+│  This is an ACTION request: ask them to respond/assist people in the         │
+│  affected areas.                                                             │
+│  - Each email MUST:                                                          │
+│    - Convey urgency/seriousness (use concrete facts from the DISASTER        │
+│  SUMMARY: affected areas, casualties, evacuations, scale, urgency).          │
+│    - Explain EXACTLY how THAT organization can help, based on the contact's  │
+│  "role", "organization", and "why_relevant" fields in CONTACTS JSON.         │
+│    - Include 3-6 tailored ACTION ITEMS (bullet list) that the org should do  │
+│  now (imperative statements), e.g. deploy teams, coordinate evacuations,     │
+│  open shelters, medical triage, incident coordination, logistics routing,    │
+│  public safety messaging, etc.                                               │
+│    - Include a short "Immediate actions" line with clear directives (no      │
+│  questions).                                                                 │
+│  - Do NOT ask questions. Do NOT include question marks.                      │
+│  - Do NOT claim you verified anything on the ground.                         │
+│  - SIGNATURE MUST be exactly:                                                │
+│  Sincerely,                                                                  │
+│  The Hand                                                                    │
+│  - Do NOT include placeholders like "[Your Name]".                           │
+│  - Include the source URL(s) as references in the email.                     │
+│  - Output STRICT JSON ONLY (no markdown) with schema:                        │
+│  {{                                                                          │
+│    "emails": [                                                               │
+│      {{                                                                      │
+│        "to_name": "string or null",                                          │
+│        "to_role": "string",                                                  │
+│        "to_org": "string",                                                   │
+│        "to_email": "string or null",                                         │
+│        "contact_form_url": "string or null",                                 │
+│        "subject": "string",                                                  │
+│        "body": "string (plain text email body)",                             │
+│        "notes": "string (short internal note why this email is tailored)"    │
+│      }}                                                                      │
+│    ]                                                                         │
+│  }}                                                                          │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Using MetaPromptOptimizer with the parameters: 
+  - evaluation: n=1 policy=best_by_metric
+  - max_trials: 1
+  - prompts_per_round: 4
+  - n_samples: None (max dataset items evaluated per trial)
+  - auto_continue: False
+  - validation_dataset: None
+  - n_samples_strategy: random_sorted (sampling strategy)
+
+
+> First we will establish the baseline performance:
+  Using training dataset: response-coordinator-optimization
+  Evaluation settings: n=1 | n_samples=all, strategy=random_sorted
+
+  Baseline score was: 0.4350.
+
+│    Generating up to 1 candidate prompt:
+│      Evaluation settings: n=1 policy=best_by_metric
+│      Successfully generated 4 candidate prompts (cap 1) (n=1 policy=best_by_metric)
+│
+│    Evaluating candidate prompt 1:
+│         Evaluation settings: n=1 policy=best_by_metric
+│         (using training dataset: response-coordinator-optimization for ranking)
+│         chat-prompt:
+│         ╭─ system ─────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You are drafting urgent outreach emails to assist disaster-stricken areas.  │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│         ╭─ user ───────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  Draft urgent outreach emails that reflect the SERIOUSNESS of the disaster   │
+│         │  and ask the recipient to HELP people affected.                              │
+│         │                                                                              │
+│         │  DISASTER LOCATION: {location}                                               │
+│         │  DISASTER SUMMARY:                                                           │
+│         │  {disaster_summary}                                                          │
+│         │                                                                              │
+│         │  SOURCES:                                                                    │
+│         │  {sources_text}                                                              │
+│         │                                                                              │
+│         │  OPTIONAL RELIEF CONTEXT:                                                    │
+│         │  - Relief estimate (USD): {relief_usd}                                       │
+│         │  - Relief estimate (ETH): {relief_eth}                                       │
+│         │  - Donation vault address: {vault_address}                                   │
+│         │                                                                              │
+│         │  CONTACTS (JSON):                                                            │
+│         │  {contacts_text}                                                             │
+│         │                                                                              │
+│         │  RULES:                                                                      │
+│         │  - Produce one email draft per contact.                                      │
+│         │  - Keep each email concise, specific, and respectful.                        │
+│         │  - All contacts provided have an email. Set "to_email" to the contact email  │
+│         │  EXACTLY.                                                                    │
+│         │  - Do NOT frame it as "we offer our support" or "potential collaboration".   │
+│         │  This is an ACTION request: ask them to respond/assist people in the         │
+│         │  affected areas.                                                             │
+│         │  - Each email MUST:                                                          │
+│         │    - Convey urgency/seriousness (use concrete facts from the DISASTER        │
+│         │  SUMMARY: affected areas, casualties, evacuations, scale, urgency).          │
+│         │    - Explain EXACTLY how THAT organization can help, based on the contact's  │
+│         │  "role", "organization", and "why_relevant" fields in CONTACTS JSON.         │
+│         │    - Include 3-6 tailored ACTION ITEMS (bullet list) that the org should do  │
+│         │  now (imperative statements), e.g. deploy teams, coordinate evacuations,     │
+│         │  open shelters, medical triage, incident coordination, logistics routing,    │
+│         │  public safety messaging, etc.                                               │
+│         │    - Include a short "Immediate actions" line with clear directives (no      │
+│         │  questions).                                                                 │
+│         │  - Do NOT ask questions. Do NOT include question marks.                      │
+│         │  - Do NOT claim you verified anything on the ground.                         │
+│         │  - SIGNATURE MUST be exactly:                                                │
+│         │  Sincerely,                                                                  │
+│         │  The Hand                                                                    │
+│         │  - Do NOT include placeholders like "[Your Name]".                           │
+│         │  - Include the source URL(s) as references in the email.                     │
+│         │  - Output STRICT JSON ONLY (no markdown) with schema:                        │
+│         │  {{                                                                          │
+│         │    "emails": [                                                               │
+│         │      {{                                                                      │
+│         │        "to_name": "string or null",                                          │
+│         │        "to_role": "string",                                                  │
+│         │        "to_org": "string",                                                   │
+│         │        "to_email": "string or null",                                         │
+│         │        "contact_form_url": "string or null",                                 │
+│         │        "subject": "string",                                                  │
+│         │        "body": "string (plain text email body)",                             │
+│         │        "notes": "string (short internal note why this email is tailored)"    │
+│         │      }}                                                                      │
+│         │    ]                                                                         │
+│         │  }}                                                                          │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│
+
+│          Evaluation score: 0.4350 (no improvement)
+│
+│
+
+> Optimization complete
+
+  No improvement over the initial prompt.
+
+[METAPROMPT] [OK] Completed: draft_emails
+  Initial Score: 0.4350
+  Final Score: 0.4350
+  Improvement: 0.0000
+  Best Prompt Preview: [{"role": "system", "content": "You are drafting urgent disaster outreach emails."}, {"role": "user", "content": "Draft urgent outreach emails that reflect the SERIOUSNESS of the disaster and ask the ...
+
+================================================================================
+[METAPROMPT] Optimizing: search_contacts
+================================================================================
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ ● Running Opik Evaluation - MetaPromptOptimizer                              │
+│                                                                              │
+│ -> View optimization details in your Opik dashboard                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+> Let's optimize the prompt:
+
+╭─ system ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You are helping coordinate disaster response outreach.                      │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ user ───────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You are helping coordinate disaster response outreach.                      │
+│                                                                              │
+│  DISASTER LOCATION (focus area): {location}                                  │
+│                                                                              │
+│  DISASTER SUMMARY:                                                           │
+│  {disaster_summary}                                                          │
+│                                                                              │
+│  SOURCES (for context):                                                      │
+│  {sources_text}                                                              │
+│                                                                              │
+│  TASK:                                                                       │
+│  Find 6-10 reputable, relevant people/services/organizations in or           │
+│  responsible for {location} that can help with disaster response, such as:   │
+│  - Official emergency management / disaster response agency                  │
+│  - Local government disaster management authority                            │
+│  - Major local hospitals / emergency services                                │
+│  - Reputable NGOs/Red Cross/relief organizations active in the area          │
+│  - UN/local humanitarian coordination (if relevant)                          │
+│                                                                              │
+│  REQUIREMENTS:                                                               │
+│  - Prioritize organizations that are local/regional to {location}            │
+│  - Include official contact channels (email preferred). If email is not      │
+│  available, provide a contact form URL and organization website.             │
+│  - Avoid random individuals; prefer official org contacts.                   │
+│  - Return STRICT JSON ONLY (no markdown) with this schema:                   │
+│  {{                                                                          │
+│    "contacts": [                                                             │
+│      {{                                                                      │
+│        "name": "string or null",                                             │
+│        "role": "string (e.g., Emergency Operations Center, Relief            │
+│  Coordinator)",                                                              │
+│        "organization": "string",                                             │
+│        "location_scope": "string (city/region/country)",                     │
+│        "email": "string or null",                                            │
+│        "contact_form_url": "string or null",                                 │
+│        "website": "string or null",                                          │
+│        "phone": "string or null",                                            │
+│        "why_relevant": "string (1-2 sentences)",                             │
+│        "evidence_url": "string (URL proving the contact/channel)"            │
+│      }}                                                                      │
+│    ]                                                                         │
+│  }}                                                                          │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Using MetaPromptOptimizer with the parameters: 
+  - evaluation: n=1 policy=best_by_metric
+  - max_trials: 1
+  - prompts_per_round: 4
+  - n_samples: None (max dataset items evaluated per trial)
+  - auto_continue: False
+  - validation_dataset: None
+  - n_samples_strategy: random_sorted (sampling strategy)
+
+
+> First we will establish the baseline performance:
+  Using training dataset: response-coordinator-optimization
+  Evaluation settings: n=1 | n_samples=all, strategy=random_sorted
+
+  Baseline score was: 0.2650.
+
+│    Generating up to 1 candidate prompt:
+│      Evaluation settings: n=1 policy=best_by_metric
+│      Successfully generated 4 candidate prompts (cap 1) (n=1 policy=best_by_metric)
+│
+│    Evaluating candidate prompt 1:
+│         Evaluation settings: n=1 policy=best_by_metric
+│         (using training dataset: response-coordinator-optimization for ranking)
+│         chat-prompt:
+│         ╭─ system ─────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You are helping coordinate disaster response outreach.                      │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│         ╭─ user ───────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You are helping coordinate disaster response outreach.                      │
+│         │                                                                              │
+│         │  DISASTER LOCATION (focus area): {location}                                  │
+│         │                                                                              │
+│         │  DISASTER SUMMARY:                                                           │
+│         │  {disaster_summary}                                                          │
+│         │                                                                              │
+│         │  SOURCES (for context):                                                      │
+│         │  {sources_text}                                                              │
+│         │                                                                              │
+│         │  TASK:                                                                       │
+│         │  Find 6-10 reputable, relevant people/services/organizations in or           │
+│         │  responsible for {location} that can help with disaster response, such as:   │
+│         │  - Official emergency management / disaster response agency                  │
+│         │  - Local government disaster management authority                            │
+│         │  - Major local hospitals / emergency services                                │
+│         │  - Reputable NGOs/Red Cross/relief organizations active in the area          │
+│         │  - UN/local humanitarian coordination (if relevant)                          │
+│         │                                                                              │
+│         │  REQUIREMENTS:                                                               │
+│         │  - Prioritize organizations that are local/regional to {location}            │
+│         │  - Include official contact channels (email preferred). If email is not      │
+│         │  available, provide a contact form URL and organization website.             │
+│         │  - Avoid random individuals; prefer official org contacts.                   │
+│         │  - Return STRICT JSON ONLY (no markdown) with this schema:                   │
+│         │  {{                                                                          │
+│         │    "contacts": [                                                             │
+│         │      {{                                                                      │
+│         │        "name": "string or null",                                             │
+│         │        "role": "string (e.g., Emergency Operations Center, Relief            │
+│         │  Coordinator)",                                                              │
+│         │        "organization": "string",                                             │
+│         │        "location_scope": "string (city/region/country)",                     │
+│         │        "email": "string or null",                                            │
+│         │        "contact_form_url": "string or null",                                 │
+│         │        "website": "string or null",                                          │
+│         │        "phone": "string or null",                                            │
+│         │        "why_relevant": "string (1-2 sentences)",                             │
+│         │        "evidence_url": "string (URL proving the contact/channel)"            │
+│         │      }}                                                                      │
+│         │    ]                                                                         │
+│         │  }}                                                                          │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│
+
+│          Evaluation score: 0.3400 (improved +0.0750, +28.30% vs best)
+│
+│
+
+> Optimization complete
+
+  Improved from 0.2650 to 0.3400 (28.30%)
+
+[METAPROMPT] [OK] Completed: search_contacts
+  Initial Score: 0.2650
+  Final Score: 0.3400
+  Improvement: 0.0750
+  Best Prompt Preview: [{"role": "system", "content": "You are helping coordinate disaster response outreach."}, {"role": "user", "content": "You are helping coordinate disaster response outreach.\n\nDISASTER LOCATION (focu...
+
+################################################################################
+# VERIFICATION AGENT OPTIMIZATION
+################################################################################
+
+================================================================================
+[METAPROMPT] Optimizing: recommend_amount
+================================================================================
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ ● Running Opik Evaluation - MetaPromptOptimizer                              │
+│                                                                              │
+│ -> View optimization details in your Opik dashboard                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+> Let's optimize the prompt:
+
+╭─ system ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You recommend how much USD to release from a disaster relief vault to an    │
+│  NGO.                                                                        │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ user ───────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You recommend how much USD to release from a disaster relief vault to an    │
+│  NGO.                                                                        │
+│                                                                              │
+│  VAULT_BALANCE_USD: {vault_usd}                                              │
+│  CLAIM_AMOUNT_USD: {claim_amount}                                            │
+│                                                                              │
+│  CLAIM_SUMMARY:                                                              │
+│  {claim_summary}                                                             │
+│                                                                              │
+│  EVIDENCE_SUMMARY:                                                           │
+│  {evidence_summary}                                                          │
+│                                                                              │
+│  RULES:                                                                      │
+│  - Recommend a single number in USD.                                         │
+│  - The recommendation MUST be <= VAULT_BALANCE_USD.                          │
+│  - If evidence is weak or unclear, recommend a conservative amount.          │
+│  - If claim amount is provided, the recommendation MUST be <=                │
+│  CLAIM_AMOUNT_USD.                                                           │
+│  - Output STRICT JSON ONLY with a single numeric field and NO currency       │
+│  symbols, NO commas:                                                         │
+│  {{ "recommended_amount_usd": 1234.56 }}                                     │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Using MetaPromptOptimizer with the parameters: 
+  - evaluation: n=1 policy=best_by_metric
+  - max_trials: 1
+  - prompts_per_round: 4
+  - n_samples: None (max dataset items evaluated per trial)
+  - auto_continue: False
+  - validation_dataset: None
+  - n_samples_strategy: random_sorted (sampling strategy)
+
+
+> First we will establish the baseline performance:
+  Using training dataset: verification-optimization
+  Evaluation settings: n=1 | n_samples=all, strategy=random_sorted
+
+  Baseline score was: 0.7567.
+
+│    Generating up to 1 candidate prompt:
+│      Evaluation settings: n=1 policy=best_by_metric
+│      Successfully generated 4 candidate prompts (cap 1) (n=1 policy=best_by_metric)
+│
+│    Evaluating candidate prompt 1:
+│         Evaluation settings: n=1 policy=best_by_metric
+│         (using training dataset: verification-optimization for ranking)
+│         chat-prompt:
+│         ╭─ system ─────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  Your task is to recommend a specific amount of USD to release from a        │
+│         │  disaster relief vault to an NGO based on the provided claim information.    │
+│         │  Please consider the following details carefully before making your          │
+│         │  recommendation.                                                             │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│         ╭─ user ───────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You recommend how much USD to release from a disaster relief vault to an    │
+│         │  NGO.                                                                        │
+│         │                                                                              │
+│         │  VAULT_BALANCE_USD: {vault_usd}                                              │
+│         │  CLAIM_AMOUNT_USD: {claim_amount}                                            │
+│         │                                                                              │
+│         │  CLAIM_SUMMARY:                                                              │
+│         │  {claim_summary}                                                             │
+│         │                                                                              │
+│         │  EVIDENCE_SUMMARY:                                                           │
+│         │  {evidence_summary}                                                          │
+│         │                                                                              │
+│         │  RULES:                                                                      │
+│         │  - Recommend a single number in USD.                                         │
+│         │  - The recommendation MUST be <= VAULT_BALANCE_USD.                          │
+│         │  - If evidence is weak or unclear, recommend a conservative amount.          │
+│         │  - If claim amount is provided, the recommendation MUST be <=                │
+│         │  CLAIM_AMOUNT_USD.                                                           │
+│         │  - Output STRICT JSON ONLY with a single numeric field and NO currency       │
+│         │  symbols, NO commas:                                                         │
+│         │  {{ "recommended_amount_usd": 1234.56 }}                                     │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│
+
+│          Evaluation score: 0.7350 (worse -0.0217, -2.86% vs best)
+│
+│
+
+> Optimization complete
+
+  No improvement over the initial prompt.
+
+[METAPROMPT] [OK] Completed: recommend_amount
+  Initial Score: 0.7567
+  Final Score: 0.7567
+  Improvement: 0.0000
+  Best Prompt Preview: [{"role": "system", "content": "You recommend how much USD to release from a disaster relief vault to an NGO."}, {"role": "user", "content": "You recommend how much USD to release from a disaster reli...
+
+================================================================================
+[METAPROMPT] Optimizing: analyze_claim
+================================================================================
+╭──────────────────────────────────────────────────────────────────────────────╮
+│ ● Running Opik Evaluation - MetaPromptOptimizer                              │
+│                                                                              │
+│ -> View optimization details in your Opik dashboard                          │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+> Let's optimize the prompt:
+
+╭─ system ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You are verifying an NGO reimbursement claim.                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ user ───────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  You are verifying an NGO reimbursement claim.                               │
+│                                                                              │
+│  VAULT FUNDS AVAILABLE (USD): {vault_usd}                                    │
+│                                                                              │
+│  CLAIM TEXT:                                                                 │
+│  {content}                                                                   │
+│                                                                              │
+│  LINK CONTENT SNIPPETS (may be HTML):                                        │
+│  {url_texts}                                                                 │
+│                                                                              │
+│  TASK:                                                                       │
+│  1) Extract the requested amount in USD if stated (number only). If not      │
+│  stated, set to null.                                                        │
+│  2) Summarize what the NGO claims they did (impact + actions) in 3-6 bullet  │
+│  points.                                                                     │
+│  3) Summarize what evidence is present/credible (receipts mentioned, links,  │
+│  etc.) in 3-6 bullet points.                                                 │
+│                                                                              │
+│  OUTPUT STRICT JSON ONLY:                                                    │
+│  {{                                                                          │
+│    "claim_amount_usd": number|null,                                          │
+│    "claim_summary": "string",                                                │
+│    "evidence_summary": "string"                                              │
+│  }}                                                                          │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Using MetaPromptOptimizer with the parameters: 
+  - evaluation: n=1 policy=best_by_metric
+  - max_trials: 1
+  - prompts_per_round: 4
+  - n_samples: None (max dataset items evaluated per trial)
+  - auto_continue: False
+  - validation_dataset: None
+  - n_samples_strategy: random_sorted (sampling strategy)
+
+
+> First we will establish the baseline performance:
+  Using training dataset: verification-optimization
+  Evaluation settings: n=1 | n_samples=all, strategy=random_sorted
+
+  Baseline score was: 0.7267.
+
+│    Generating up to 1 candidate prompt:
+│      Evaluation settings: n=1 policy=best_by_metric
+│      Successfully generated 4 candidate prompts (cap 1) (n=1 policy=best_by_metric)
+│
+│    Evaluating candidate prompt 1:
+│         Evaluation settings: n=1 policy=best_by_metric
+│         (using training dataset: verification-optimization for ranking)
+│         chat-prompt:
+│         ╭─ system ─────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You are tasked with verifying an NGO reimbursement claim.                   │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│         ╭─ user ───────────────────────────────────────────────────────────────────────╮
+│         │                                                                              │
+│         │  You are verifying an NGO reimbursement claim.                               │
+│         │                                                                              │
+│         │  VAULT FUNDS AVAILABLE (USD): {vault_usd}                                    │
+│         │                                                                              │
+│         │  CLAIM TEXT:                                                                 │
+│         │  {content}                                                                   │
+│         │                                                                              │
+│         │  LINK CONTENT SNIPPETS (may be HTML):                                        │
+│         │  {url_texts}                                                                 │
+│         │                                                                              │
+│         │  TASK:                                                                       │
+│         │  1) Extract the requested amount in USD if stated (number only). If not      │
+│         │  stated, set to null.                                                        │
+│         │  2) Summarize what the NGO claims they did (impact + actions) in 3-6 bullet  │
+│         │  points.                                                                     │
+│         │  3) Summarize what evidence is present/credible (receipts mentioned, links,  │
+│         │  etc.) in 3-6 bullet points.                                                 │
+│         │                                                                              │
+│         │  OUTPUT STRICT JSON ONLY:                                                    │
+│         │  {{                                                                          │
+│         │    "claim_amount_usd": number|null,                                          │
+│         │    "claim_summary": "string",                                                │
+│         │    "evidence_summary": "string"                                              │
+│         │  }}                                                                          │
+│         │                                                                              │
+│         ╰──────────────────────────────────────────────────────────────────────────────╯
+│
+
+│          Evaluation score: 0.7500 (improved +0.0233, +3.21% vs best)
+│
+│
+
+> Optimization complete
+
+  Improved from 0.7267 to 0.7500 (3.21%)
+
+[METAPROMPT] [OK] Completed: analyze_claim
+  Initial Score: 0.7267
+  Final Score: 0.7500
+  Improvement: 0.0233
+  Best Prompt Preview: [{"role": "system", "content": "You are tasked with verifying an NGO reimbursement claim."}, {"role": "user", "content": "You are verifying an NGO reimbursement claim.\n\nVAULT FUNDS AVAILABLE (USD): ...
+
+================================================================================
+OPTIMIZATION SUMMARY
+================================================================================
+
+DISASTER_MONITORING:
+  search_disasters:
+    metaprompt: 0.3707 → 0.3707 (+0.0000)
+  calculate_relief:
+    metaprompt: 0.2584 → 0.2744 (+0.0159)
+
+RESPONSE_COORDINATOR:
+  draft_emails:
+    metaprompt: 0.4350 → 0.4350 (+0.0000)
+  search_contacts:
+    metaprompt: 0.2650 → 0.3400 (+0.0750)
+
+VERIFICATION:
+  recommend_amount:
+    metaprompt: 0.7567 → 0.7567 (+0.0000)
+  analyze_claim:
+    metaprompt: 0.7267 → 0.7500 (+0.0233)
+
+================================================================================
+Results saved to: optimization_results_20260129_124610.json
+Log file saved to: C:\Users\MSI\Desktop\handz\agents\opik_optimization_log_20260129_122736.txt
+Completed: 2026-01-29T12:46:10.515399
+================================================================================
+
+================================================================================
+📊 VIEW RESULTS IN OPIK DASHBOARD:
+================================================================================
+  Workspace: impakt
+  Project: disaster-monitoring
+  Dashboard URL: https://app.opik.com/impakt/projects/disaster-monitoring
+
+  Navigate to: Evaluation → Optimization runs
+  You'll see:
+    - All optimization trials with scores
+    - Best prompts found by each optimizer
+    - Comparison of initial vs optimized scores
+    - Detailed trace-level evidence for each trial
+================================================================================
+
+================================================================================
+[LOG] All output logged to: C:\Users\MSI\Desktop\handz\agents\opik_optimization_log_20260129_122736.txt
+================================================================================

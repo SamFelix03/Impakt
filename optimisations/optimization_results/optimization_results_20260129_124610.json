@@ -1,0 +1,56 @@
+{
+  "disaster_monitoring": {
+    "search_disasters": {
+      "metaprompt": {
+        "initial_score": 0.37071428571428566,
+        "final_score": 0.37071428571428566,
+        "improvement": 0.0,
+        "best_prompt_preview": "[{\"role\": \"system\", \"content\": \"You are a disaster monitoring assistant.\"}, {\"role\": \"user\", \"content\": \"Search for ONE natural disaster or emergency that happened recently worldwide (could be from today, yesterday, last week, or even a few weeks ago).\\n\\nDO NOT report on: {exclude_list}\\n\\nFind ONE different disaster that hasn't been mentioned yet - it could be:\\n- Earthquake\\n- Flood\\n- Wildfire\\n- Storm/Hurricane/Cyclone\\n- Tsunami\\n- Volcanic eruption\\n- Landslide\\n- Any other major disaster"
+      }
+    },
+    "calculate_relief": {
+      "metaprompt": {
+        "initial_score": 0.25842857142857145,
+        "final_score": 0.27435714285714285,
+        "improvement": 0.015928571428571403,
+        "best_prompt_preview": "[{\"role\": \"system\", \"content\": \"You are equipped to evaluate disaster relief estimates.\"}, {\"role\": \"user\", \"content\": \"You are a disaster relief calculator. Based on the disaster information and current weather conditions, estimate the relief amount needed in USD.\\n\\nDISASTER INFO:\\n{disaster_content}\\n\\nCURRENT WEATHER CONDITIONS:\\n{weather_summary}\\n\\nConsider:\\n1. Scale of disaster (casualties, displaced people, damage)\\n2. Current weather (harsh conditions = more relief needed)\\n3. Geograph"
+      }
+    }
+  },
+  "response_coordinator": {
+    "draft_emails": {
+      "metaprompt": {
+        "initial_score": 0.43499999999999994,
+        "final_score": 0.43499999999999994,
+        "improvement": 0.0,
+        "best_prompt_preview": "[{\"role\": \"system\", \"content\": \"You are drafting urgent disaster outreach emails.\"}, {\"role\": \"user\", \"content\": \"Draft urgent outreach emails that reflect the SERIOUSNESS of the disaster and ask the recipient to HELP people affected.\\n\\nDISASTER LOCATION: {location}\\nDISASTER SUMMARY:\\n{disaster_summary}\\n\\nSOURCES:\\n{sources_text}\\n\\nOPTIONAL RELIEF CONTEXT:\\n- Relief estimate (USD): {relief_usd}\\n- Relief estimate (ETH): {relief_eth}\\n- Donation vault address: {vault_address}\\n\\nCONTACTS (JSO"
+      }
+    },
+    "search_contacts": {
+      "metaprompt": {
+        "initial_score": 0.265,
+        "final_score": 0.34,
+        "improvement": 0.07500000000000001,
+        "best_prompt_preview": "[{\"role\": \"system\", \"content\": \"You are helping coordinate disaster response outreach.\"}, {\"role\": \"user\", \"content\": \"You are helping coordinate disaster response outreach.\\n\\nDISASTER LOCATION (focus area): {location}\\n\\nDISASTER SUMMARY:\\n{disaster_summary}\\n\\nSOURCES (for context):\\n{sources_text}\\n\\nTASK:\\nFind 6-10 reputable, relevant people/services/organizations in or responsible for {location} that can help with disaster response, such as:\\n- Official emergency management / disaster res"
+      }
+    }
+  },
+  "verification": {
+    "recommend_amount": {
+      "metaprompt": {
+        "initial_score": 0.7566666666666667,
+        "final_score": 0.7566666666666667,
+        "improvement": 0.0,
+        "best_prompt_preview": "[{\"role\": \"system\", \"content\": \"You recommend how much USD to release from a disaster relief vault to an NGO.\"}, {\"role\": \"user\", \"content\": \"You recommend how much USD to release from a disaster relief vault to an NGO.\\n\\nVAULT_BALANCE_USD: {vault_usd}\\nCLAIM_AMOUNT_USD: {claim_amount}\\n\\nCLAIM_SUMMARY:\\n{claim_summary}\\n\\nEVIDENCE_SUMMARY:\\n{evidence_summary}\\n\\nRULES:\\n- Recommend a single number in USD.\\n- The recommendation MUST be <= VAULT_BALANCE_USD.\\n- If evidence is weak or unclear, re"
+      }
+    },
+    "analyze_claim": {
+      "metaprompt": {
+        "initial_score": 0.7266666666666666,
+        "final_score": 0.75,
+        "improvement": 0.023333333333333428,
+        "best_prompt_preview": "[{\"role\": \"system\", \"content\": \"You are tasked with verifying an NGO reimbursement claim.\"}, {\"role\": \"user\", \"content\": \"You are verifying an NGO reimbursement claim.\\n\\nVAULT FUNDS AVAILABLE (USD): {vault_usd}\\n\\nCLAIM TEXT:\\n{content}\\n\\nLINK CONTENT SNIPPETS (may be HTML):\\n{url_texts}\\n\\nTASK:\\n1) Extract the requested amount in USD if stated (number only). If not stated, set to null.\\n2) Summarize what the NGO claims they did (impact + actions) in 3-6 bullet points.\\n3) Summarize what evid"
+      }
+    }
+  }
+}
