@@ -2,7 +2,7 @@
 
 ## Important Links
 
-- **Demo Video**: Coming Soon
+- **Demo Video**: [View Here](https://youtu.be/lLsK_0Wom3k?si=E8CMVLe_RFr5LDMn)
 - **Live App**: [View Here](https://impakt-iota.vercel.app)
 
 ---
