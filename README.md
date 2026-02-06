@@ -311,7 +311,7 @@ The Disaster Monitoring Agent discovers recent disasters, estimates relief needs
 ### Pipeline (step-by-step)
 
 1. **Search disasters** (`search`)  
-   - Uses **OpenAI web search** (e.g. `gpt-4o-search-preview`) to find **one** recent natural disaster in Sri Lanka (earthquake, flood, storm, etc.) that has not been reported yet.  
+   - Uses **OpenAI web search** (e.g. `gpt-4o-search-preview`) to find **one** recent natural disaster in the world (earthquake, flood, storm, etc.) that has not been reported yet.  
    - Excludes already-reported disasters.  
    - Collects disaster description and source URLs.  
    - **Opik:** `OpikTracer` around `disaster_monitoring.search_disasters`; optional **LLM-as-Judge** evaluates disaster detection (accuracy, relevance, completeness, source quality, location precision).
