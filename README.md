@@ -74,7 +74,12 @@ Natural disasters strike without warning, leaving communities devastated and in 
    - People want to help but lack information about the disaster, affected areas, and how to contribute effectively
    - **Our Solution**: Our **Telegram Agent** maintains per-topic conversation history and provides personalized responses based on real-time disaster data from Supabase. The agent can refetch the latest disaster information (including donation progress and vault addresses) on-demand, ensuring users always have current, accurate information about how to help
 
-By using AI agents to quickly identify and create awareness about disasters around the world, enabling transparent donations that organizations can claim for financial support, and creating Telegram Communities where people can gather and discuss events with AI-guided assistance, impakt transforms disaster response from reactive to proactive, from fragmented to coordinated, and from opaque to transparent.
+6. **Local Responders Not Reached in Time**
+   - Even when disasters are detected, emergency management, NGOs, hospitals, and relief organizations in the affected area often learn too late or through scattered channels
+   - Manual outreach is slow and inconsistent, so the right decision-makers may never receive a clear, actionable request for help
+   - **Our Solution**: Our **Response Coordinator Agent** (implemented as a LangGraph workflow) uses OpenAI web search to find 6–10 relevant local contacts—agencies, disaster authorities, hospitals, NGOs, and relief organizations—with real email addresses. It then drafts concise, personalized outreach emails that convey urgency, tailor action items to each organization’s role, and include disaster context plus optional relief/vault details. Emails are sent automatically via SMTP so that key responders are notified as soon as a disaster is detected
+
+By using AI agents to quickly identify and create awareness about disasters around the world, automatically notifying local responders via the **Response Coordinator Agent**, enabling transparent donations that organizations can claim for financial support, and creating Telegram Communities where people can gather and discuss events with AI-guided assistance, impakt transforms disaster response from reactive to proactive, from fragmented to coordinated, and from opaque to transparent.
 
 ---
 
