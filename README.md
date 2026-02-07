@@ -31,7 +31,7 @@
 
 ## Introduction
 
-**impakt** is a completely AI-powered natural disaster response and relief platform that revolutionizes how we respond to global crises. Built on **LangGraph** workflows and powered by advanced AI agents, our platform automatically identifies the latest disaster news from across the internet, raises awareness on Twitter/X, notifies related organizations via email, and empowers people to make a real difference through donations and community engagement.
+**impakt** is a completely AI-powered natural disaster response and relief platform that revolutionizes how we respond to global crises. Built on **LangGraph** and powered by advanced AI agents, our platform automatically identifies the latest disaster news from across the internet, raises awareness on Twitter/X, notifies related organizations via email, and empowers people to make a real difference through donations and community engagement.
 
 At its core, impakt leverages cutting-edge AI agents implemented as **LangGraph** workflows to:
 - **Detect disasters in real-time** using OpenAI web search to scan global news sources, automatically extracting location data and filtering out already-reported incidents
