@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
+export const runtime = 'nodejs'
 
 // Cache for ETH price to avoid excessive API calls
 // Using a module-level variable (will be shared across requests in the same process)
